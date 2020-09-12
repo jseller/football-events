@@ -1,0 +1,6 @@
+[flake8]
+max-line-length = 100
+application-import-names = resulta
+exclude = migrations
+# Ignore some necessary style violations in Alembic generated code
+per-file-ignores = migrations/versions/*.py: E122,E128,E501,X100
