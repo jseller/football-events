@@ -36,3 +36,30 @@ exact same field names and data types.
 | home_rank | rank | team_rankings |  | 
 | home_rank_points | adjusted_points | team_rankings | Round up to 2 decimal places | 
 
+
+# Functional Requirements
+
+data provider gets scoreboard api data with token (issue#)
+data provider gets rankings api data with token
+data provider saves api data in cache
+data provider updates cached data daily
+
+spread analyzer combines scoreboard data and team rankings between dates
+
+events api returns spread analyzer data between dates
+
+
+# Cross functional requirements
+
+## Usability
+events api returns standard json data
+
+## Performance
+events api should cache api data for 24 hour window
+
+## Security
+events api use ssl connection
+events api use oauth2 authentication
+  events api check permissions for data
+  events api use customer accounts
+

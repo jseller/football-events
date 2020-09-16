@@ -20,9 +20,7 @@ services:
       - "5000"
     volumes:
       - ./:/app
-    depends_on:
-      - postgres
-
+    
   nginx:
     build: ./nginx
     restart: always
@@ -32,31 +30,6 @@ services:
       - "80:80"
     depends_on:
       - web
-
-  worker:
-    build:
-      context: "."
-    command: pipenv run celery multi start worker1 -A celery_worker.celery --loglevel=info --logfile=logs/worker.log
-    depends_on:
-      - "redis"
-    env_file:
-      - ".prod.env"
-    restart: "${DOCKER_RESTART_POLICY:-unless-stopped}"
-    stop_grace_period: "${DOCKER_STOP_GRACE_PERIOD:-3s}"
-    volumes:
-      - "${DOCKER_WEB_VOLUME:-./public:/app/public}"
-
-  postgres:
-    image: "postgres"
-    restart: always
-    volumes:
-      - ./postgres-data:/var/lib/postgresql/data
-    ports:
-      - "5432:5432"
-    expose:
-      - "5432"
-    env_file:
-      - ".prod.env"
 
   redis:
     env_file:
