@@ -1,7 +1,7 @@
 import logging.config
 from http import HTTPStatus
 
-from flask import Flask, jsonify, redirect, request
+from flask import Flask, jsonify
 
 from marshmallow.exceptions import ValidationError
 

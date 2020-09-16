@@ -8,11 +8,6 @@ EXPECTED_FIELDS = [
 ]
 
 
-def test_can_get_design(testapp):
-    
+def test_can_get_events(testapp):
     res = testapp.get('/events')
-
     assert res.status_code == HTTPStatus.OK
-
-    assert len(res.json) == 10
-    

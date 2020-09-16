@@ -21,7 +21,7 @@ class Config(object):
     TESTING = False
     CSRF_ENABLED = True
     SECRET_KEY = 'thisisreallysecretforsure'
-    
+
 
 class ProductionConfig(Config):
     DEBUG = False
