@@ -39,15 +39,16 @@ exact same field names and data types.
 
 # Functional Requirements
 
-data provider gets scoreboard api data with token (issue#)
-data provider gets rankings api data with token
-data provider saves api data in cache
-data provider updates cached data daily
+1. Data provider gets scoreboard api data with token - https://github.com/jseller/football-events/issues/2
+2. data provider gets rankings api data with token - https://github.com/jseller/football-events/issues/2
 
-spread analyzer combines scoreboard data and team rankings between dates
+3. data provider saves api data in cache
+4. data provider updates cached data daily
+
+5. spread analyzer combines scoreboard data and team rankings between dates - https://github.com/jseller/football-events/issues/3
 
 events api returns spread analyzer data between dates
-
+events api returns cached data for 
 
 # Cross functional requirements
 
@@ -56,6 +57,10 @@ events api returns standard json data
 
 ## Performance
 events api should cache api data for 24 hour window
+- using live api introduces latency and incurrs expense for redundant requests. To alliviate this the api has 2 levels of cache. This is implemented as a lazy realization, but could be enhanced to pre-fetch data based on availablity of data to provide a consistent response time
+-- calls to dependent apis are cached according to the provider
+-- results from events api are cached once they are created as underlying data will not change once set
+
 
 ## Security
 events api use ssl connection
