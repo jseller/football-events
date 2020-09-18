@@ -63,8 +63,31 @@ events api should cache api data for 24 hour window
 
 
 ## Security
-events api use ssl connection
-events api use oauth2 authentication
+events api provide ssl connection
+events api use tls (ssl connection with dependencies)
+
+events api use authentication
+  - user accounts
+
+events api use authorization
   events api check permissions for data
   events api use customer accounts
+
+events api provide oauth2 authentication
+
+
+
+# Development
+pipenv run pytest tests
+pipenv run flake8
+
+pipenv run flask run
+
+
+# Deployment
+
+docker compose up
+- runs on port 5000
+
+http://127.0.0.1:5000/events?from_date=2020-09-09&to_date=2020-09-11
 

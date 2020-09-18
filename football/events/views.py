@@ -1,8 +1,8 @@
 
-from flask import Blueprint, jsonify, render_template, request
+from flask import Blueprint, jsonify, render_template
 
 from webargs import fields
-from webargs.flaskparser import parser
+from webargs.flaskparser import use_args
 
 from football.events.spread_analyzer import combined_spreads
 
@@ -22,8 +22,9 @@ event_args = {
 
 
 @blueprints.route('/events', methods=['GET'])
-def get_designs():
-    args = parser.parse(event_args, request)
+@use_args({'from_date': fields.Str(required=True),
+           'to_date': fields.Str(required=True)}, location='query')
+def get_designs(args):
     data = combined_spreads(args.get('from_date'),
                             args.get('to_date'))
-    return jsonify({'success': 'updated now ', 'data': data})
+    return jsonify(data)

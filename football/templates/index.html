@@ -1,0 +1,35 @@
+<html>
+
+<head>
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.21/css/jquery.dataTables.css">    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.21/js/jquery.dataTables.js"></script>
+</head>
+
+<body>
+    Events with Spreads
+    <table id="spreads">
+    </table>
+</body>
+
+<script>
+
+$.get({
+  url: "/events?from_date=2019-12-01&to_date=2019-12-07",
+  success: function( result ) {  
+    var $table = $('<table/>');
+    for (obj in result) {
+      var events = result[obj];
+      $table.append('<tr>');
+      for (ev in events) {
+        $table.append( '<td>'+  ev + ' <b> ' + events[ev] + '</b></td>' );
+      }
+      $table.append('</tr>');
+    }
+    $('#spreads').append($table);
+  }  
+})
+
+</script>
+
+</html>
