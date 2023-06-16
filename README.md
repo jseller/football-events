@@ -8,11 +8,11 @@ API that is frequently updated.
 provides no other functionality other than to return the data in JSON format
   
   - Scoreboard: /scoreboard/{league}/{start_date}/{end_date}
-  https://delivery.chalk247.com/scoreboard/NFL/<YYYY-MM-DD>/<YYYY-MM-DD>.json?api_key=74db8efa2a6db279393b433d97c2bc843f8e32b0
-  https://delivery.chalk247.com/scoreboard/NFL/2020-09-02/2020-09-04.json?api_key=74db8efa2a6db279393b433d97c2bc843f8e32b0
+  https://delivery.chalk247.com/scoreboard/NFL/<YYYY-MM-DD>/<YYYY-MM-DD>.json?api_key=<key>
+  https://delivery.chalk247.com/scoreboard/NFL/2020-09-02/2020-09-04.json?api_key=<key>
 
   - Team Rankings: /team_rankings/{league}
-  https://delivery.chalk247.com/team_rankings/NFL.json?api_key=74db8efa2a6db279393b433d97c2bc843f8e32b0
+  https://delivery.chalk247.com/team_rankings/NFL.json?api_key=<key>
 
 * You can assume the API will always return the data in the exact same format, with the
 exact same field names and data types.
